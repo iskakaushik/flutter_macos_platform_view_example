@@ -1,7 +1,7 @@
 name: flutter_macos_platform_view_example
 description: A new flutter plugin project.
 version: 0.0.1
-homepage:
+homepage: https://iska.is
 
 environment:
   sdk: ">=2.16.0-144.0.dev <3.0.0"

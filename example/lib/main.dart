@@ -30,8 +30,8 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
-      platformVersion =
-          await FlutterMacosPlatformViewExample.platformVersion ?? 'Unknown platform version';
+      platformVersion = await FlutterMacosPlatformViewExample.platformVersion ??
+          'Unknown platform version';
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
@@ -48,13 +48,29 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    final Widget nsBox = Container(
+      width: 400,
+      height: 400,
+      child: const NSBox(),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16.0),
+        color: Colors.green,
+      ),
+    );
+    final Widget version = Text('Running on: $_platformVersion\n');
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Column(
+            children: [
+              version,
+              nsBox,
+            ],
+          ),
         ),
       ),
     );
